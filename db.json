@@ -81,12 +81,12 @@
       "id": "10"
     },
     {
-      "id": "d7ec",
       "nombre": "Facundo",
       "dominio": "River Plate",
       "simbolo": "rojo",
-      "poder": 87,
-      "ciudad": "MDP"
+      "poder": "89",
+      "ciudad": "MDP",
+      "id": "d7ec"
     }
   ]
 }

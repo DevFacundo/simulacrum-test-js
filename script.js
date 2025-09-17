@@ -151,7 +151,7 @@ form.addEventListener("submit", async (e) => {
     nombre: nameInput.value,
     dominio: domainInput.value,
     simbolo: symbolInput.value,
-    poder: parseInt(powerInput.value) || powerInput.value,
+    poder: powerInput.value,
     ciudad: cityInput.value
   };
 
