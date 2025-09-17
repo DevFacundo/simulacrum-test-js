@@ -12,8 +12,9 @@
         <h1>Simulacro Parcial Dioses</h1>
         <div id="main-container">  
         <section id="form-section">
-            <h2>Agregar Dios</h2>
+            
             <form id="god-form">
+                <h2 class="title">Agregar Dios</h2>
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -39,26 +40,21 @@
     <section id="gods-list-section">
     <h2>Lista de Dioses</h2>
     
-    <button type="button" id="show-all-btn">Mostrar Todo</button>
-    <button type="button" id="show-name-domain-btn">Mostrar Nombre y Dominio</button>
+    <button type="button" class="button" id="show-all-btn">Mostrar Todo</button>
+    <button type="button" class="button" id="show-name-domain-btn">Mostrar Nombre y Dominio</button>
     
     <br><br>
     
     <label for="attribute-input">Ver atributo especifico:</label>
     <input type="text" id="attribute-input" placeholder="Escribe: nombre, dominio, simbolo, poder, ciudad">
+    <button type="button" class="button" id="show-attribute-btn">Mostrar Atributo</button>
     <div id="gods-container">
 
-        <div class="headers">
-            <p>Id -</p>
-            <p>Nombre -</p>
-            <p>Dominio -</p>
-            <p>Poder -</p>
-            <p>Simbolo -</p>
-            <p>Ciudad -</p>
+        <div id="header-list">
+    
         </div>
          <ul id="gods-list"></ul>
     </div>
-   
 </section>
         </div>
     </main>

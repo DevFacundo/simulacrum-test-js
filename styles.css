@@ -8,12 +8,16 @@ body{
 #main-container{
     display: flex;
     flex-direction: row;
-    gap: 100px;
-
+    gap: 30%;
 }
 h1{
     text-align: center;
     color: #fff;
+}
+.title{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
 }
 form{
     margin-bottom: 20px;
@@ -22,6 +26,7 @@ form{
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
+    position: fixed;
 }
 form div{
     margin-bottom: 10px;
@@ -50,6 +55,16 @@ form button:hover{
     background: #218838;
 }
 
+.button{
+    padding: 10px 15px;
+    background: #5d245f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
 
 #attribute-input{
     width: 100%;
@@ -58,56 +73,32 @@ form button:hover{
     margin-bottom: 10px;
     border-radius: 5px;
 }
-
-
-
-.headers{
+#gods-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #320238;
+    border-radius: 5px;
+    box-shadow: #320238 0px 0px 10px;
+    margin-top: 20px;
+}
+#header-list{
     font-weight: bold;
     display: flex;
-    justify-content: space-between;
-    text-align: left;
     padding: 10px;
     background: #41044949;
     color: #fff;
     border-radius: 5px;
     margin-top: 20px;
     margin-left: 35px;
-    width: 50%;
+    width: 60%;
 }
-
-#god-list-section{
-    list-style-type: none;
-    padding: 0;
-    width: 40%;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+#gods-list li:hover{
+    background: #7e11fc;
 }
-#god-list li{
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-#god-list li:hover{
-    background: #f9f9f9;
-}
-
-#gods-container{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-    /* justify-content: space-around; */
-    justify-content: flex-start;
-    width: 100%;
-    border: 1px solid #320238;
-    border-radius: 5px;
-    box-shadow: #320238 0px 0px 10px;
-    margin-top: 20px;
-
-}
-
 #gods-list li {
     display: flex;
     justify-content: space-between;
@@ -116,12 +107,6 @@ form button:hover{
     border-bottom: 1px solid #eee;
     margin-bottom: 5px;
 }
-
-/* .button-group {
-    display: flex;
-    justify-content: flex-end;
-} */
-
 .edit-button, .delete-button {
     padding: 5px 10px;
     border: none;
@@ -135,12 +120,10 @@ form button:hover{
 .edit-button:hover {
     background-color: #45a049;
 }
-
 .delete-button {
     background-color: #f44336;
     color: white;
 }
-
 .delete-button:hover {
     background-color: #da190b;
 }

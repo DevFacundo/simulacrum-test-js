@@ -7,21 +7,23 @@ const symbolInput = document.getElementById("symbol");
 const powerInput = document.getElementById("power");
 const cityInput = document.getElementById("city");
 const godList = document.getElementById("gods-list");
+const headerList = document.getElementById("header-list");
 
-// Botones y controles
+//buttons and input for filtering
 const showAllBtn = document.getElementById("show-all-btn");
 const showNameDomainBtn = document.getElementById("show-name-domain-btn");
 const attributeInput = document.getElementById("attribute-input");
+const showAttributeBtn = document.getElementById("show-attribute-btn");
+
 
 let editingId = null;
 let allGods = [];
 
 
-
 async function getGods() {
   try {
-    const res = await fetch(url);
-    allGods = await res.json();
+    const response = await fetch(url);
+    allGods = await response.json();
     showAllGods();
   } catch (error) {
     console.error("Error al cargar dioses:", error);
@@ -31,6 +33,7 @@ async function getGods() {
 
 
 function showAllGods() {
+  headerList.innerHTML = "<strong>ID - Nombre - Dominio - Poder - Simbolo - Ciudad</strong>";
   godList.innerHTML = "";
   
   allGods.forEach(god => {
@@ -40,48 +43,43 @@ function showAllGods() {
     const editButton = document.createElement("button");
     editButton.textContent = "Editar";
     editButton.classList.add("edit-button");
-     editButton.classList.add("button-group");
+    editButton.classList.add("button-group");
     editButton.addEventListener("click", async () => {
       try {
         console.log("Editando dios con ID:", god.id);
-        const res = await fetch(`${url}/${god.id}`);
+        const response = await fetch(`${url}/${god.id}`);
         
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const godData = await res.json();
+        const godData = await response.json();
         nameInput.value = godData.nombre;
         domainInput.value = godData.dominio;
         symbolInput.value = godData.simbolo;
         cityInput.value = godData.ciudad;
         powerInput.value = godData.poder;
         editingId = godData.id;
-        console.log("Datos cargados para editar:", godData);
       } catch (error) {
         console.error("Error al cargar datos para editar:", error);
-        alert("Error al cargar los datos del dios. Revisa la consola.");
+        alert("Error al cargar los datos del dios.");
       }
     });
+
     const divBtn=document.createElement("div");
     divBtn.classList.add("button-group");
 
     li.appendChild(divBtn);
-
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Eliminar";
     deleteBtn.classList.add("delete-button");
     deleteBtn.addEventListener("click", async () => {
       try {
-        console.log("Eliminando dios con ID:", god.id);
-        const res = await fetch(`${url}/${god.id}`, { method: "DELETE" });
-        
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
+        const response = await fetch(`${url}/${god.id}`, { method: "DELETE" });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
-        console.log("Dios eliminado exitosamente");
 
         getGods();
       } catch (error) {
@@ -101,9 +99,10 @@ function showAllGods() {
 
 // Funcion para mostrar solo nombre y dominio
 function showNameAndDomain() {
-  godList.innerHTML = "";
+    headerList.innerHTML = "<strong>Nombre - Dominio</strong>";
+    godList.innerHTML = "";
   
-  allGods.forEach(god => {
+    allGods.forEach(god => {
     const li = document.createElement("li");
     li.textContent = `${god.nombre} - ${god.dominio}`;
     godList.appendChild(li);
@@ -111,35 +110,37 @@ function showNameAndDomain() {
 }
 
 // Funcion para mostrar por atributo
-function showAttribute(attribute) {
-  godList.innerHTML = "";
+function showAttribute() {
+  const attribute = attributeInput.value;
   
-  const validAttributes = ["nombre", "dominio", "simbolo", "poder", "ciudad"];
-  if (!validAttributes.includes(attribute)) {
-    const li = document.createElement("li");
-    li.textContent = `Atributo "${attribute}" no válido. Usa: nombre, dominio, simbolo, poder, ciudad`;
-    li.style.padding = "10px";
-    godList.appendChild(li);
+  if (!attribute) {
+    alert("Por favor ingresa un atributo");
     return;
   }
+
+  const validAttributes = ["nombre", "dominio", "simbolo", "poder", "ciudad"];
+  if (!validAttributes.includes(attribute)) {
+    alert(`Atributo "${attribute}" no válido. Usa: nombre, dominio, simbolo, poder o ciudad`);
+    return;
+  }
+  // headerList.innerHTML = "";
+ headerList.innerHTML = `<strong>${attribute}</strong>`;
+  godList.innerHTML = "";
   
   allGods.forEach(god => {
     const li = document.createElement("li");
     li.textContent = `${god[attribute]}`;
-    li.style.padding = "10px";
-    li.style.borderBottom = "1px solid #eee";
+
     godList.appendChild(li);
   });
+  
+  attributeInput.value = "";
 }
 
-// Event listeners
+
 showAllBtn.addEventListener("click", showAllGods);
 showNameDomainBtn.addEventListener("click", showNameAndDomain);
-attributeInput.addEventListener("input", (e) => {
-  showAttribute(e.target.value.trim());
-});
-
-// Inicializar
+showAttributeBtn.addEventListener("click", showAttribute);
 getGods();
 
 // Evento del formulario para crear o editar un dios
