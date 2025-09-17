@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacro Parcial Dioses</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main id="main">
+        <h1>Simulacro Parcial Dioses</h1>
+        <div id="main-container">  
+        <section id="form-section">
+            <h2>Agregar Dios</h2>
+            <form id="god-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="domain">Dominio:</label>
+                <input type="text" id="domain" name="domain" required>
+
+
+
+            
+                <label for="symbol">Símbolo:</label>
+                <input type="text" id="symbol" name="symbol" required>
+
+                <label for="power">Poder:</label>
+                <input type="text" id="power" name="power" required>
+
+                <label for="city">Ciudad:</label>
+                <input type="text" id="city" name="city" required>
+
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+
+    <section id="gods-list-section">
+    <h2>Lista de Dioses</h2>
+    
+    <button type="button" id="show-all-btn">Mostrar Todo</button>
+    <button type="button" id="show-name-domain-btn">Mostrar Nombre y Dominio</button>
+    
+    <br><br>
+    
+    <label for="attribute-input">Ver atributo especifico:</label>
+    <input type="text" id="attribute-input" placeholder="Escribe: nombre, dominio, simbolo, poder, ciudad">
+    <div id="gods-container">
+
+        <div class="headers">
+            <p>Id -</p>
+            <p>Nombre -</p>
+            <p>Dominio -</p>
+            <p>Poder -</p>
+            <p>Simbolo -</p>
+            <p>Ciudad -</p>
+        </div>
+         <ul id="gods-list"></ul>
+    </div>
+   
+</section>
+        </div>
+    </main>
+
+
+</body>
+</html>

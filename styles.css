@@ -1,0 +1,146 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #5e3abe;
+    background: linear-gradient(to right, #5e3abe, #8e44ad);
+    color: #d8d3d3;
+}
+#main-container{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+
+}
+h1{
+    text-align: center;
+    color: #fff;
+}
+form{
+    margin-bottom: 20px;
+    background: #5d245f;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+form div{
+    margin-bottom: 10px;
+}
+form label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+form input{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+form button{
+    padding: 10px 15px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    width: 100%;
+}
+form button:hover{
+    background: #218838;
+}
+
+
+#attribute-input{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+
+.headers{
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 10px;
+    background: #41044949;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 35px;
+    width: 50%;
+}
+
+#god-list-section{
+    list-style-type: none;
+    padding: 0;
+    width: 40%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#god-list li{
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#god-list li:hover{
+    background: #f9f9f9;
+}
+
+#gods-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: flex-start;
+    width: 100%;
+    border: 1px solid #320238;
+    border-radius: 5px;
+    box-shadow: #320238 0px 0px 10px;
+    margin-top: 20px;
+
+}
+
+#gods-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+/* .button-group {
+    display: flex;
+    justify-content: flex-end;
+} */
+
+.edit-button, .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #da190b;
+}
